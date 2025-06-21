@@ -1,0 +1,21 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Feedback.API.Protos";
+	
+package feedback;
+
+message FeedbackModel {
+	optional int32 id=1;
+	optional string comment=2;
+	int32 rating=3;
+	int32 moduleId=4;
+	int32 userId=5;
+}
+
+message CreateFeedbackRequest {
+	FeedbackModel feedback=1;
+}
+
+service FeedbackProtoService {
+	rpc CreateFeedback (CreateFeedbackRequest) returns (FeedbackModel);
+}
