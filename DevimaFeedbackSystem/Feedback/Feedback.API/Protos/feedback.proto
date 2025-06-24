@@ -16,6 +16,24 @@ message CreateFeedbackRequest {
 	FeedbackModel feedback=1;
 }
 
+message GetFeedbacksByModuleIdRequest {
+	int32 moduleId=1;
+}
+message FeedbacksResponse {
+	repeated FeedbackModel feedbacks=1;
+}
+
+message GetFeedbackByUserIdRequest {
+	repeated FeedbackModel feedbacks=1;
+}
+
+message RemoveFeedbackResponse {
+	int32 id=1;
+}
+
 service FeedbackProtoService {
 	rpc CreateFeedback (CreateFeedbackRequest) returns (FeedbackModel);
+	rpc GetFeedbacksByModuleId (GetFeedbacksByModuleIdRequest) returns (FeedbacksResponse);
+	rpc GetFeedbacksByUserId (GetFeedbackByUserIdRequest) returns (FeedbacksResponse);
+	rpc RemoveFeedback (FeedbackModel) returns (RemoveFeedbackResponse);
 }
