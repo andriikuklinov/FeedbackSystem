@@ -1,6 +1,6 @@
 ﻿using DevimaFeedbackSystem.Common.Core.CQRS;
 
-namespace Feedback.API.Feedbacks.Commands
+namespace Feedback.API.Feedbacks.Commands.CreateFeedback
 {
     public class CreateFeedbackCommand: ICommand<CreateFeedbackResult>
     {

@@ -1,6 +1,6 @@
 ﻿using FeedbackEntity = Feedback.API.Data.Entities.Feedback;
 
-namespace Feedback.API.Feedbacks.Commands
+namespace Feedback.API.Feedbacks.Commands.CreateFeedback
 {
     public class CreateFeedbackResult
     {
@@ -8,7 +8,7 @@ namespace Feedback.API.Feedbacks.Commands
 
         public CreateFeedbackResult(FeedbackEntity feedback)
         {
-            this.Feedback = feedback;
+            Feedback = feedback;
         }
     }
 }

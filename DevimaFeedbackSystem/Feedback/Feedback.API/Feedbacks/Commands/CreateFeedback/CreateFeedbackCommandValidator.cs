@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Feedback.API.Feedbacks.Commands
+namespace Feedback.API.Feedbacks.Commands.CreateFeedback
 {
     public class CreateFeedbackCommandValidator: AbstractValidator<CreateFeedbackCommand>
     {

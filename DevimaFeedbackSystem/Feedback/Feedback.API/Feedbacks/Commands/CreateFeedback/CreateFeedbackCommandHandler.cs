@@ -3,7 +3,7 @@ using DevimaFeedbackSystem.Common.Core.CQRS;
 using Feedback.API.Data.Repositories.Contracts;
 using FeedbackEntity = Feedback.API.Data.Entities.Feedback;
 
-namespace Feedback.API.Feedbacks.Commands
+namespace Feedback.API.Feedbacks.Commands.CreateFeedback
 {
     public class CreateFeedbackCommandHandler: ICommandHandler<CreateFeedbackCommand, CreateFeedbackResult>
     {
