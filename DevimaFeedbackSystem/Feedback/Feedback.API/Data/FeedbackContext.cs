@@ -19,8 +19,6 @@ namespace Feedback.API.Data
             modelBuilder.Entity<FeedbackEntity>().Property(_ => _.UserId).IsRequired();
             modelBuilder.Entity<FeedbackEntity>().Property(_ => _.ModuleId).IsRequired();
             modelBuilder.Entity<FeedbackEntity>().Property(_ => _.Rating).IsRequired();
-            modelBuilder.Entity<FeedbackEntity>().ToTable(_=>_.HasCheckConstraint("CK_Feedback_Rating", "[Rating] BETWEEN 1 AND 5"));
-            modelBuilder.Entity<FeedbackEntity>().Property(_ => _.PublishDate).HasDefaultValueSql("GETUTCDATE()");
 
             modelBuilder.Entity<FeedbackEntity>().HasData(new List<FeedbackEntity>()
             {

@@ -1,7 +1,7 @@
 ﻿syntax = "proto3";
 
 option csharp_namespace = "Feedback.API.Protos";
-	
+import "google/protobuf/timestamp.proto";
 package feedback;
 
 message FeedbackModel {
@@ -10,6 +10,7 @@ message FeedbackModel {
 	int32 rating=3;
 	int32 moduleId=4;
 	int32 userId=5;
+	google.protobuf.Timestamp publishDate=6;
 }
 
 message CreateFeedbackRequest {

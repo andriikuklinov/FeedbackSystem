@@ -9,5 +9,6 @@ namespace Feedback.API.Feedbacks.Commands.CreateFeedback
         public int Rating { get; set; }
         public int ModuleId { get; set; }
         public int UserId { get; set; }
+        public DateTime PublishDate { get; set; }
     }
 }
