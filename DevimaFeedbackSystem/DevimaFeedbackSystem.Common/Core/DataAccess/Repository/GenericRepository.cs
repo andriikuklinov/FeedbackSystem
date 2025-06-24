@@ -10,6 +10,12 @@ namespace DevimaFeedbackSystem.Common.Core.DataAccess.Repository
         {
             this.context = context;
         }
+
+        public IQueryable<T> GetAll()
+        {
+            return context.Set<T>().AsNoTracking<T>();
+        }
+
         public async Task<T> AddAsync(T entity)
         {
             await context.AddAsync(entity);
