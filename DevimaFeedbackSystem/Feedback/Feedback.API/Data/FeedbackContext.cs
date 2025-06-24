@@ -10,7 +10,7 @@ namespace Feedback.API.Data
 
         public FeedbackContext(DbContextOptions<FeedbackContext> options): base(options)
         {
-            
+            Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
