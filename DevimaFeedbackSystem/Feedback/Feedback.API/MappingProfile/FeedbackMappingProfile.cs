@@ -1,14 +1,12 @@
 ﻿using AutoMapper;
 using Feedback.API.Data.Repositories;
 using Feedback.API.Data.Repositories.Contracts;
-using Feedback.API.Extensions.Mapping;
 using Feedback.API.Feedbacks.Commands.CreateFeedback;
+using Feedback.API.Feedbacks.Commands.RemoveFeedback;
 using Feedback.API.Feedbacks.Queries.Common;
 using Feedback.API.Feedbacks.Queries.GetFeedbacksByModuleId;
 using Feedback.API.Feedbacks.Queries.GetUserFeedbacks;
 using Feedback.API.Protos;
-using Google.Protobuf;
-using Google.Protobuf.Collections;
 using Google.Protobuf.WellKnownTypes;
 using FeedbackEntity = Feedback.API.Data.Entities.Feedback;
 
@@ -45,6 +43,11 @@ namespace Feedback.API.MappingProfile
                 .ForMember(destination => destination.UserId, options => options.MapFrom(source => source.Feedback.UserId))
                 .ForMember(destination => destination.Rating, options => options.MapFrom(source => source.Feedback.Rating))
                 .ForMember(destination => destination.PublishDate, options => options.MapFrom(source => Timestamp.FromDateTime(source.Feedback.PublishDate.ToUniversalTime())));
+
+            CreateMap<FeedbackModel, RemoveFeedbackCommand>()
+                .ForMember(destination => destination.Id, options => options.MapFrom(source => source.Id));
+
+            CreateMap<int, RemoveFeedbackResponse>().ForMember(destination => destination.Id, options => options.MapFrom(source => source));
         }
     }
 }
