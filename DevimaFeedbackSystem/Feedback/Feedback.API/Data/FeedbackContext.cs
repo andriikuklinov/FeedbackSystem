@@ -27,8 +27,8 @@ namespace Feedback.API.Data
                 new FeedbackEntity(){ Id=1, Comment="Lorem ipsum dolor sit amet.", Rating=1, ModuleId=1, UserId=1 },
                 new FeedbackEntity(){ Id=2, Comment="Lorem ipsum.", Rating=1, ModuleId=2, UserId=2 },
                 new FeedbackEntity(){ Id=3, Rating=4, ModuleId=1, UserId=2 },
-                new FeedbackEntity(){ Id=3, Rating=5, ModuleId=2, UserId=3 },
-                new FeedbackEntity(){ Id=4, Comment="Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem.", Rating=2, ModuleId=1, UserId=4 }
+                new FeedbackEntity(){ Id=4, Rating=5, ModuleId=2, UserId=3 },
+                new FeedbackEntity(){ Id=5, Comment="Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem.", Rating=2, ModuleId=1, UserId=4 }
             });
 
             base.OnModelCreating(modelBuilder);
