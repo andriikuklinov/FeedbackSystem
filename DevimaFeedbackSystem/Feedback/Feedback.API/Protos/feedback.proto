@@ -24,7 +24,7 @@ message FeedbacksResponse {
 }
 
 message GetFeedbackByUserIdRequest {
-	repeated FeedbackModel feedbacks=1;
+	int32 userId=1;
 }
 
 message RemoveFeedbackResponse {
