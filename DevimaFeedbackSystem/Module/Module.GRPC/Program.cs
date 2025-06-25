@@ -1,6 +1,14 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+using Microsoft.EntityFrameworkCore;
+using Module.GRPC.Data;
+using Module.GRPC.Data.Repositories;
+using Module.GRPC.Data.Repositories.Contracts;
 
-app.MapGet("/", () => "Hello World!");
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddScoped<IModuleRespository, ModuleRepository>();
+builder.Services.AddDbContext<ModuleContext>((options) =>
+{
+    options.UseInMemoryDatabase("ModuleDb");
+});
+var app = builder.Build();
 
 app.Run();
