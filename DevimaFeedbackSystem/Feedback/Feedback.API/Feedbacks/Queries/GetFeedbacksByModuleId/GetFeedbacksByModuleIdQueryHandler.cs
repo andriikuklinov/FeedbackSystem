@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using DevimaFeedbackSystem.Common.Core.CQRS;
+﻿using DevimaFeedbackSystem.Common.Core.CQRS;
 using Feedback.API.Data.Repositories.Contracts;
 using Feedback.API.Feedbacks.Queries.Common;
 

@@ -24,11 +24,16 @@ builder.Services.AddAutoMapper(config =>
 {
     config.AddProfile(new FeedbackMappingProfile());
 });
+<<<<<<< HEAD
 builder.Services.AddMediatR(config => {
     config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
     config.AddOpenBehavior(typeof(ValidationBehaviour<,>));
 });
 builder.Services.AddValidatorsFromAssemblyContaining<CreateFeedbackCommandValidator>();
+=======
+builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+>>>>>>> module
 
 var app = builder.Build();
 app.MapGrpcService<FeedbackService>();
