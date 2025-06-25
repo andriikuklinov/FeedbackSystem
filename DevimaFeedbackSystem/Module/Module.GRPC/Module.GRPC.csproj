@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
-    <Folder Include="Data\" />
-    <Folder Include="Modules\" />
-    <Folder Include="MappingProfile\" />
-    <Folder Include="Services\" />
-    <Folder Include="Protos\" />
-=======
     <None Remove="Protos\module.proto" />
   </ItemGroup>
 
@@ -32,7 +25,6 @@
     <Protobuf Include="Protos\module.proto" GrpcServices="Server">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Protobuf>
->>>>>>> module
   </ItemGroup>
 
 </Project>

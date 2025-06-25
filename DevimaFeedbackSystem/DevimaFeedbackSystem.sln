@@ -15,11 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevimaFeedbackSystem.Common
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feedback.API", "Feedback\Feedback.API\Feedback.API.csproj", "{D6197AB2-6FBD-4CD9-B5EC-8CF9732BDF7F}"
 EndProject
-<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.GRPC", "Module\Module.GRPC\Module.GRPC.csproj", "{BF381BFF-F4AB-405B-B580-38A2C8909DB2}"
-=======
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module.GRPC", "Module\Module.GRPC\Module.GRPC.csproj", "{6E564FCD-5484-B950-8D73-8571B19D5664}"
->>>>>>> module
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,17 +31,10 @@ Global
 		{D6197AB2-6FBD-4CD9-B5EC-8CF9732BDF7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6197AB2-6FBD-4CD9-B5EC-8CF9732BDF7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6197AB2-6FBD-4CD9-B5EC-8CF9732BDF7F}.Release|Any CPU.Build.0 = Release|Any CPU
-<<<<<<< HEAD
 		{BF381BFF-F4AB-405B-B580-38A2C8909DB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BF381BFF-F4AB-405B-B580-38A2C8909DB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF381BFF-F4AB-405B-B580-38A2C8909DB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF381BFF-F4AB-405B-B580-38A2C8909DB2}.Release|Any CPU.Build.0 = Release|Any CPU
-=======
-		{6E564FCD-5484-B950-8D73-8571B19D5664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E564FCD-5484-B950-8D73-8571B19D5664}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E564FCD-5484-B950-8D73-8571B19D5664}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E564FCD-5484-B950-8D73-8571B19D5664}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>> module
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,11 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{01A8960D-D468-403C-98E3-37C15BD49F54} = {1824DEF2-28EA-4BDB-A330-42D8588E6384}
 		{D6197AB2-6FBD-4CD9-B5EC-8CF9732BDF7F} = {D1F40BA6-61CC-4DBD-B070-0C4220C21EFE}
-<<<<<<< HEAD
 		{BF381BFF-F4AB-405B-B580-38A2C8909DB2} = {8E570CF6-427E-474A-ADD9-B71D69623715}
-=======
-		{6E564FCD-5484-B950-8D73-8571B19D5664} = {8E570CF6-427E-474A-ADD9-B71D69623715}
->>>>>>> module
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9D3D423D-9F7A-4D71-BDFF-E602F9216DFB}
