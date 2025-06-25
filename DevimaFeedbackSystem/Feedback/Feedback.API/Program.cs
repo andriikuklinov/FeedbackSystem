@@ -21,7 +21,6 @@ builder.Services.AddAutoMapper(config =>
 });
 builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-builder.Services.AddExceptionHandler<CustomExceptionsHandler>();
 
 var app = builder.Build();
 app.MapGrpcService<FeedbackService>();

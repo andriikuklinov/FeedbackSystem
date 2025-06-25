@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "Module.GRPC.Protos";
+import "google/protobuf/empty.proto";
+package module;
+
+message ModuleModel {
+	int32 id=1;
+	string name=2;
+}
+
+message ModulesResponse {
+	repeated ModuleModel modules=1;
+}
+
+message GetModules {
+	int32 moduleId=1;
+}
+
+service ModuleProtoService {
+	rpc GetModules (google.protobuf.Empty) returns (ModulesResponse);
+}

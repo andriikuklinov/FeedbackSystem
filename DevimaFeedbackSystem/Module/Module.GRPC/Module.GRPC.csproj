@@ -7,7 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Protos\module.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\DevimaFeedbackSystem.Common\DevimaFeedbackSystem.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.Tools" Version="2.72.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\module.proto" GrpcServices="Server">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Protobuf>
   </ItemGroup>
 
 </Project>

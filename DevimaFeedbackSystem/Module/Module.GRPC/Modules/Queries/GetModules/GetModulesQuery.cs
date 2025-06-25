@@ -2,7 +2,7 @@
 
 namespace Module.GRPC.Modules.Queries.GetModules
 {
-    public class GetModulesQuery: IQuery<GetModulesQuery>
+    public class GetModulesQuery: IQuery<GetModulesResult>
     {
     }
 }
