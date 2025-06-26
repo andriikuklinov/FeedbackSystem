@@ -1,1 +1,114 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('fonts.css');
+@import url('margins.css');
+
+:root {
+    --dark-color: #19181F;
+    --light-color: #fff;
+    --primary-color: #AE7AFF;
+    --shadow-color: #717171;
+    --gray-color: #5F646D;
+    --icon-btn-color: #fff;
+    --dark-hover-color: #161616;
+    --green-color: #15D6E2;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "JetBrains Mono", sans-serif;
+    background: var(--dark-color);
+    color: var(--light-color);
+    background-image: url('/assets/img/background.jpg');
+}
+
+.h1 {
+    font-size: 48px;
+    line-height: 56px;
+    font-weight: 800;
+}
+.h4 {
+    font-size: 24px;
+    font-style: normal;
+    line-height: 32px;
+    font-weight: 800;
+}
+.h6 {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 800;
+}
+.regular{
+    font-size: 14px;
+    font-style: normal;
+    line-height: 21px;
+    font-weight: 400;
+}
+.subtitle {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.control-label {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    display: block;
+}
+
+.input {
+    width: 100%;
+    margin-top: 8px;
+    display: block;
+    border: 1px solid var(--light-color);
+    border-radius: 5px;
+    padding: 12px 20px;
+    background: var(--dark-color);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    font-family: "JetBrains Mono", sans-serif;
+    color: var(--light-color);
+}
+.icon-btn{
+    background: none;
+    border: none;
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+svg{
+    stroke: var(--light-color);
+}
+svg.active{
+    stroke: var(--primary-color);
+}
+.medium-text{
+    font-family: "JetBrains Mono", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+}
+.btn {
+    width: 100%;
+    background: var(--primary-color);
+    color: var(--dark-color);
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid var(--dark-color);
+}
+
+.btn-shadow {
+    box-shadow: 5px 5px 0px 0px var(--green-color);
+}

@@ -2,6 +2,7 @@ import { inject, Injectable } from "@angular/core";
 import { CookieService } from "ngx-cookie-service";
 import { TokenResponse } from "./data/models/token-response.interface";
 import { catchError, from, Observable, tap, throwError } from "rxjs";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
     providedIn: 'root'
@@ -10,6 +11,7 @@ export class AuthService {
     public token: string | null = null;
     public refreshToken: string | null = null;
     private cookieService = inject(CookieService);
+    private httpClient: HttpClient = inject(HttpClient);
 
     get isAuth(): boolean {
         if (!this.token) {
@@ -20,20 +22,17 @@ export class AuthService {
     }
 
     private setTokens(value: TokenResponse): void {
-        this.token = value.token;
-        this.refreshToken = value.refreshToken;
+        this.token = value.access_token;
 
         this.cookieService.set('token', <string>this.token);
-        this.cookieService.set('refreshToken', <string>this.refreshToken);
     }
 
     login(credentials: { login: string, password: string }): Observable<TokenResponse> {
-        return from<Promise<TokenResponse>>(new Promise(resolve => resolve({ token: 'a23c34sVBBNV23nshdg21mMbH', refreshToken: 'jd3fh18eu34bc35232bnTfRGBv' })))
-            .pipe(
-                tap(value => {
-                    this.setTokens(value);
-                })
-            )
+        return this.httpClient.post<TokenResponse>('https://localhost:7282/Auth/Login', credentials).pipe(
+            tap((value) => {
+                this.setTokens(value);
+            })
+        );
     }
 
     logout() {

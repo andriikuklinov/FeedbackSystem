@@ -1,9 +1,11 @@
 <form action="" class="login-form" [formGroup]="form" (ngSubmit)="onSubmit($event)">
-    <h1 class="h1 mb60">Login</h1>
+    <h1 class="h1 mb60 login_logo-wrapper">
+        <img src="/assets/svg/logo.svg" alt="devima" />
+    </h1>
     <label class="control-label mb16">
         Login
         <div class="icon-input-wrapper">
-            <input name="login" formControlName="username" class="input" type="text" placeholder="Login" />
+            <input name="login" formControlName="login" class="input" type="text" placeholder="Login" />
             <button type="button" class="icon-btn">
                 <svg icon="person"></svg>
             </button>
@@ -21,7 +23,3 @@
     </label>
     <button type="submit" class="btn btn-shadow">Login</button>
 </form>
-<div class="login_logo-wrapper">
-    <img src="/assets/svg/logo.svg" alt="talk-me" />
-    <img class="login_logo-talk-me" src="/assets/img/logo.png" alt="logo-talk-me" />
-</div>

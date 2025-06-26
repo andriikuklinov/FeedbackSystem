@@ -1,4 +1,3 @@
 export interface TokenResponse{
-    token: string | null;
-    refreshToken: string | null;
+    access_token: string | null;
 }

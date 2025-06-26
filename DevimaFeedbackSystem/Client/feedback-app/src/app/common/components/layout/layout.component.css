@@ -1,0 +1,12 @@
+:host {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    height: 100vh;
+}
+.workspace{
+    overflow-y: auto;
+    padding: 24px;
+}
+.icon-input-wrapper {
+    position: relative;
+}
