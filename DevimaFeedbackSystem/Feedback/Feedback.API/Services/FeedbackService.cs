@@ -6,10 +6,12 @@ using Feedback.API.Feedbacks.Queries.GetUserFeedbacks;
 using Feedback.API.Protos;
 using Grpc.Core;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using FeedbackEntity = Feedback.API.Data.Entities.Feedback;
 
 namespace Feedback.API.Services
 {
+    [Authorize]
     public class FeedbackService: FeedbackProtoService.FeedbackProtoServiceBase
     {
         private readonly ILogger<FeedbackService> _logger;

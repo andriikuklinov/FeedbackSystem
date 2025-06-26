@@ -11,10 +11,14 @@
 	    <PrivateAssets>all</PrivateAssets>
 	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	  </PackageReference>
+	  <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="8.12.1" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\DevimaFeedbackSystem.Common\DevimaFeedbackSystem.Common.csproj" />
+		<PackageReference Include="Microsoft.IdentityModel.Protocols" Version="7.4.0"/>
+		<PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="7.4.0"/>
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.4.0"/>
 	</ItemGroup>
 
 	<ItemGroup>

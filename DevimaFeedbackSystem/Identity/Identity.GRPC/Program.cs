@@ -1,14 +1,10 @@
-using Duende.IdentityServer.Models;
-using Duende.IdentityServer.Test;
 using Identity.GRPC.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddIdentityServer()
-    .AddInMemoryClients(Config.Clients)
-    .AddInMemoryIdentityResources(Config.IdentityResources)
+builder.Services.AddIdentityServer(config=>config.AccessTokenJwtType="Bearer")
     .AddInMemoryApiResources(Config.ApiResources)
     .AddInMemoryApiScopes(Config.ApiScopes)
-    .AddTestUsers(Config.TestUsers.ToList())
+    .AddInMemoryClients(Config.Clients)
     .AddDeveloperSigningCredential();
 
 var app = builder.Build();
