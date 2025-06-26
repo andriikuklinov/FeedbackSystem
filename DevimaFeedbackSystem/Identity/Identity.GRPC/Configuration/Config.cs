@@ -1,24 +1,32 @@
-﻿using Duende.IdentityServer.Models;
+﻿using Duende.IdentityModel;
+using Duende.IdentityServer.Models;
 using Duende.IdentityServer.Test;
+using System.Security.Claims;
 
 namespace Identity.GRPC.Configuration
 {
     public class Config
     {
-        //public static IEnumerable<IdentityResource> IdentityResources => new IdentityResource[]
-        //{
-        //    new IdentityResource[]
-        //    {
-        //         IdentityResources.OpenId(),
-        //        new IdentityResources.Profile()
-        //    }
-        //};
+        public static IEnumerable<TestUser> TestUsers => new TestUser[]
+        {
+            new TestUser
+            {
+                SubjectId="1",
+                Username="andrii",
+                Password="qwerty",
+                Claims = new List<Claim>
+                {
+                    new Claim(JwtClaimTypes.Name, "Andrii Kuklinov"),
+                    new Claim(JwtClaimTypes.Email, "akuklinov@outlook.com")
+                }
+            }
+        };
         public static IEnumerable<Client> Clients => new Client[] 
         {
             new Client
             {
                 ClientId = "feedbackClient",
-                AllowedGrantTypes = GrantTypes.ClientCredentials,
+                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 ClientSecrets =
                 {
                     new Secret("secret".Sha256())
@@ -39,10 +47,6 @@ namespace Identity.GRPC.Configuration
             }
         };
         public static IEnumerable<IdentityResource> IdentityResources => new IdentityResource[]
-        {
-
-        };
-        public static IEnumerable<TestUser> TestUsers => new TestUser[]
         {
 
         };
