@@ -25,25 +25,27 @@ namespace Identity.GRPC.Configuration
         {
             new Client
             {
-                ClientId = "feedbackClient",
+                ClientId = "gatewayClient",
                 AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                 ClientSecrets =
                 {
                     new Secret("secret".Sha256())
                 },
-                AllowedScopes = { "feedbackScope" }
+                AllowedScopes = { "gatewayScope", "feedbackScope" }
             }
         };
 
         public static IEnumerable<ApiScope> ApiScopes => new ApiScope[]
         {
-            new ApiScope("feedbackScope")
+            new ApiScope("feedbackScope"),
+            new ApiScope("gatewayScope")
         };
         public static IEnumerable<ApiResource> ApiResources => new ApiResource[]
         {
-            new ApiResource("feedbackResource")
+            new ApiResource("gatewayResource")
             {
-                Scopes = { "feedbackScope" }  
+                Scopes = { "gatewayScope", "feedbackScope" }
+                
             }
         };
         public static IEnumerable<IdentityResource> IdentityResources => new IdentityResource[]
