@@ -1,0 +1,40 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Feedback.API.Protos.Client";
+import "google/protobuf/timestamp.proto";
+package feedback;
+
+message FeedbackModel {
+	optional int32 id=1;
+	optional string comment=2;
+	int32 rating=3;
+	int32 moduleId=4;
+	int32 userId=5;
+	google.protobuf.Timestamp publishDate=6;
+}
+
+message CreateFeedbackRequest {
+	FeedbackModel feedback=1;
+}
+
+message GetFeedbacksByModuleIdRequest {
+	int32 moduleId=1;
+}
+message FeedbacksResponse {
+	repeated FeedbackModel feedbacks=1;
+}
+
+message GetFeedbackByUserIdRequest {
+	int32 userId=1;
+}
+
+message RemoveFeedbackResponse {
+	int32 id=1;
+}
+
+service FeedbackProtoService {
+	rpc CreateFeedback (CreateFeedbackRequest) returns (FeedbackModel);
+	rpc GetFeedbacksByModuleId (GetFeedbacksByModuleIdRequest) returns (FeedbacksResponse);
+	rpc GetFeedbacksByUserId (GetFeedbackByUserIdRequest) returns (FeedbacksResponse);
+	rpc RemoveFeedback (FeedbackModel) returns (RemoveFeedbackResponse);
+}

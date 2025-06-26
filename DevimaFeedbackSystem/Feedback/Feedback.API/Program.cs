@@ -39,14 +39,14 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
         options.Authority = "https://localhost:7258";
-        options.Audience = "feedbackResource";
+        options.Audience = "gatewayResource";
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
             ValidateAudience = true,
             ValidateIssuerSigningKey = true,
             ValidIssuer = "https://localhost:7258",
-            ValidAudience = "feedbackResource",
+            ValidAudience = "gatewayResource",
             //IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("secret"))
         };
     });
