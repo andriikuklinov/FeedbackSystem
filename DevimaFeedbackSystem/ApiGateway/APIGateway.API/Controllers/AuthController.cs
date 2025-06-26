@@ -31,7 +31,7 @@ namespace APIGateway.API.Controllers
 
             var response = await _httpClient.PostAsync("https://localhost:7258/connect/token", content);
 
-            return Json(await response.Content.ReadAsStringAsync());
+            return Json(await response.Content.ReadFromJsonAsync(typeof(Object)));
         }
     }
 }

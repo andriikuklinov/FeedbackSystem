@@ -1,0 +1,19 @@
+<table>
+    <thead>
+        <td>id</td>
+        <td>comment</td>
+        <td>rating</td>
+        <td>module</td>
+    </thead>
+    <tbody>
+        @for (feedback of feedbacks(); track feedback.id){
+            <tr>
+                <td>{{feedback.id}}</td>
+                <td>{{feedback.comment}}</td>
+                <td>{{feedback.rating}}</td>
+                <td>{{feedback.moduleId}}</td>
+                <td>operation</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -24,7 +24,7 @@ body {
     font-family: "JetBrains Mono", sans-serif;
     background: var(--dark-color);
     color: var(--light-color);
-    background-image: url('/assets/img/background.jpg');
+    /*background-image: url('/assets/img/background.jpg');*/
 }
 
 .h1 {
@@ -111,4 +111,12 @@ svg.active{
 
 .btn-shadow {
     box-shadow: 5px 5px 0px 0px var(--green-color);
+}
+table, thead, th, tr{
+    padding: 20px;
+    border: solid 1px white;
+}
+td{
+    padding: 10px;
+    border: solid 1px white;
 }
