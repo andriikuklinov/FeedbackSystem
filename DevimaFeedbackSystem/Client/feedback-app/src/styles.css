@@ -151,3 +151,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     border: none;
     cursor: pointer;
 }
+.centered-cell{
+    text-align: center;
+}

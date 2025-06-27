@@ -67,6 +67,6 @@ export class FeedbackListComponent implements OnInit{
     orderFeedbacks(){
         debugger;
         this.orderByRating.update(value=> value=='asc' ? 'desc' : 'asc');
-        this.loadFeedbacks(1, this.orderByRating());
+        this.loadFeedbacks(this.moduleId(), this.orderByRating());
     }
 }

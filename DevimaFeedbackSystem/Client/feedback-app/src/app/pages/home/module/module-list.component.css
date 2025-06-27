@@ -33,6 +33,10 @@
     background: var(--dark-hover-color);
     color: var(--primary-color);
 }
+.menu-item-active{
+    background: var(--dark-hover-color);
+    color: var(--primary-color);
+}
 .menu-item-header{
     width: 200px;
 }

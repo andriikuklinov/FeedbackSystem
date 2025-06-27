@@ -9,9 +9,9 @@
         </td>
         <td>publish date</td>
         <td>module</td>
-        <td>
-            <button matButton class="mb20 align-right" (click)="addFeedback()">Add</button>
-        </td>
+        <th class="centered-cell">
+            <button matButton (click)="addFeedback()">Add</button>
+        </th>
     </thead>
     <tbody>
         @for (feedback of feedbacks(); track feedback.id){
@@ -21,7 +21,7 @@
                 <td>{{feedback.rating}}</td>
                 <td>{{feedback.publishDate.seconds * 1000 | date}}</td>
                 <td>{{feedback.moduleId}}</td>
-                <td>
+                <td class="centered-cell">
                     <button (click)="removeFeedback(feedback)" type="button" class="operation-btn">
                         <svg icon="trash"></svg>
                     </button>
