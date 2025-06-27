@@ -41,8 +41,13 @@ export class FeedbackListComponent implements OnInit{
             data: null
         });
 
-        dialogRef.afterClosed().subscribe(result => {
-            console.log(result);
+        dialogRef.afterClosed().subscribe(feedback => {
+            feedback.moduleId = this.moduleId();
+            this.feedbackService.createFeedback(feedback).subscribe((response)=>{
+                if(response){
+                    this.feedbacks.update(values=> [...values, response]);
+                }
+            });
         });
     }
 }

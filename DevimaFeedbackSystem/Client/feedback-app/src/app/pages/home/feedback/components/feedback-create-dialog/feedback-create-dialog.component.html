@@ -1,6 +1,6 @@
 <h2 mat-dialog-title>Create Feedback</h2>
 <mat-dialog-content class="mat-typography">
-    <form class="dialog-form" [formGroup]="form" (ngSubmit)="onSave()">
+    <form class="dialog-form" [formGroup]="form">
         <label class="control-label mb16">
         Rating
         <div class="icon-input-wrapper">
@@ -23,5 +23,5 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button matButton mat-dialog-close>Cancel</button>
-  <button matButton [disabled]="!form.valid" [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+  <button matButton [disabled]="!form.valid" [mat-dialog-close]="form.value" cdkFocusInitial>Save</button>
 </mat-dialog-actions>

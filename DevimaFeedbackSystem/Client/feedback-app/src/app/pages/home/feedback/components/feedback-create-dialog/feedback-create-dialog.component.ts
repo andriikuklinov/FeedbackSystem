@@ -27,14 +27,4 @@ export class FeedbackCreateDialog {
         }
         this.form.get('comment')?.updateValueAndValidity();
     }
-
-    onSave(){
-        if(this.form.valid){
-            this.dialogRef.close(this.form.value);
-        }
-    }
-
-    onCancel(){
-        this.dialogRef.close(null);
-    }
 }
