@@ -1,16 +1,18 @@
 import { Component, inject, OnInit, signal, WritableSignal } from "@angular/core";
 import { FeedbackService } from "../../../common/services/feedback.service";
-import { FeedbackModel } from "./models/feedback.model";
 import { ActivatedRoute } from "@angular/router";
 import { MatDialog, MatDialogModule } from "@angular/material/dialog";
 import { FeedbackCreateDialog } from "./components/feedback-create-dialog/feedback-create-dialog.component";
 import { MatButtonModule } from "@angular/material/button";
+import { FeedbackModel } from "./models/feedback.model";
+import { DatePipe } from "@angular/common";
+import { SvgIconComponent } from "../../../common/components/svg-icon/svg-icon.component";
 
 @Component({
     selector: 'feedback-list',
     templateUrl: './feedback-list.component.html',
     styleUrl: './feedback-list.component.css',
-    imports: [MatButtonModule, MatDialogModule]
+    imports: [MatButtonModule, MatDialogModule, DatePipe, SvgIconComponent]
 })
 export class FeedbackListComponent implements OnInit{
     feedbacks: WritableSignal<FeedbackModel[]> = signal([])
@@ -30,7 +32,6 @@ export class FeedbackListComponent implements OnInit{
 
     private loadFeedbacks(moduleId: number){
         this.feedbackService.getFeedbacks(moduleId).subscribe((response)=>{
-            debugger;
             this.feedbacks.set(response);
         });
     }
@@ -41,7 +42,7 @@ export class FeedbackListComponent implements OnInit{
             data: null
         });
 
-        dialogRef.afterClosed().subscribe(feedback => {
+        dialogRef.afterClosed().subscribe((feedback: FeedbackModel) => {
             feedback.moduleId = this.moduleId();
             this.feedbackService.createFeedback(feedback).subscribe((response)=>{
                 if(response){
@@ -49,5 +50,16 @@ export class FeedbackListComponent implements OnInit{
                 }
             });
         });
+    }
+
+    removeFeedback(feedback: FeedbackModel){
+        debugger;
+        if(feedback){
+            this.feedbackService.removeFeedback(feedback).subscribe((response)=>{
+                if(response){
+                    this.feedbacks.update(values=> [...values.filter((value)=> value.id != feedback.id)]);
+                }
+            })
+        }
     }
 }

@@ -1,7 +1,7 @@
 export interface FeedbackModel{
     id: number;
     comment: string;
-    publishDate: Date;
+    publishDate: { nanos: number, seconds: number};
     rating: number;
     moduleId: number;
     userId: number;

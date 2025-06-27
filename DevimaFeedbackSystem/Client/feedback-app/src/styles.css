@@ -142,3 +142,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .align-right{
     float: right;
 }
+.operation-btn{
+    background: none;
+    border: none;
+    cursor: pointer;
+}

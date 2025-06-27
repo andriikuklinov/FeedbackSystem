@@ -13,7 +13,7 @@ export class FeedbackCreateDialog {
     dialogRef = inject(MatDialogRef<FeedbackCreateDialog>);
     form: FormGroup = new FormGroup({
         rating: new FormControl<string | null>(null, Validators.required),
-        comment: new FormControl<string | null>(null)
+        comment: new FormControl<string | null>('')
     });
     
     ratingOnChange($event: Event){

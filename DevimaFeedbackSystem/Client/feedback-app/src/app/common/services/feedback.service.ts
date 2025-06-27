@@ -30,4 +30,15 @@ export class FeedbackService {
         feedback.userId=this.setCurrentUserId();
         return this.httpClient.post<FeedbackModel>('https://localhost:7282/Feedback/CreateFeedback', feedback);
     }
+
+    removeFeedback(feedback: FeedbackModel): Observable<FeedbackModel>{
+        debugger;
+        return this.httpClient.post<FeedbackModel>('https://localhost:7282/Feedback/DeleteFeedback', { 
+            id: feedback.id,
+            comment: feedback.comment,
+            userId: feedback.userId,
+            rating: feedback.rating,
+            moduleId: feedback.moduleId
+        });
+    }
 }
