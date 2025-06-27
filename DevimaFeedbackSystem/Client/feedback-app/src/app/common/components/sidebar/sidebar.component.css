@@ -5,3 +5,7 @@
     height: 100px;
     border-bottom: solid 1px white;
 }
+footer{
+    position: absolute;
+    bottom: 0;
+}

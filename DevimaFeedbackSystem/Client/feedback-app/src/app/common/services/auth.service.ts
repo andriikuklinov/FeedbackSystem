@@ -3,6 +3,7 @@ import { CookieService } from "ngx-cookie-service";
 import { TokenResponse } from "./data/models/token-response.interface";
 import { catchError, from, map, Observable, tap, throwError } from "rxjs";
 import { HttpClient } from "@angular/common/http";
+import { Router } from "@angular/router";
 
 @Injectable({
     providedIn: 'root'
@@ -10,6 +11,7 @@ import { HttpClient } from "@angular/common/http";
 export class AuthService {
     private cookieService = inject(CookieService);
     private httpClient: HttpClient = inject(HttpClient);
+    private router: Router = inject(Router);
 
     get token(): string {
         return this.cookieService.get('token');
@@ -36,5 +38,6 @@ export class AuthService {
 
     logout() {
         this.cookieService.deleteAll();
+        this.router.navigate(['/login'])
     }
 }

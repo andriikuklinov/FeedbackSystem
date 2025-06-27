@@ -112,6 +112,16 @@ svg.active{
 .btn-shadow {
     box-shadow: 5px 5px 0px 0px var(--green-color);
 }
+.logout-btn{
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--light-color);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0;
+    text-decoration: none;
+}
 table, thead, th, tr{
     padding: 20px;
     border: solid 1px white;
@@ -119,4 +129,8 @@ table, thead, th, tr{
 td{
     padding: 10px;
     border: solid 1px white;
+}
+.login-logo{
+    width: 400px;
+    height: 400px
 }
