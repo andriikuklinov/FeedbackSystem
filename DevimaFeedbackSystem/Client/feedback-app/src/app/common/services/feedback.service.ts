@@ -3,6 +3,7 @@ import { inject, Injectable } from "@angular/core";
 import { map, Observable } from "rxjs";
 import { FeedbackModel } from "../../pages/home/feedback/models/feedback.model";
 import { AuthService } from "./auth.service";
+import { FeedbackCollection } from "../../pages/home/feedback/models/feedback-collection.model";
 
 @Injectable({
     providedIn: 'root'
@@ -20,11 +21,11 @@ export class FeedbackService {
         debugger;
         return result?.sub;
     }
-    getFeedbacks(moduleId: number, orderByRating: string): Observable<FeedbackModel[]>{
+    getFeedbacks(moduleId: number, orderByRating: string): Observable<FeedbackCollection>{
         let requestParams: HttpParams = new HttpParams()
             .set('moduleId', moduleId)
             .set('orderByRating', orderByRating);
-        return this.httpClient.get<FeedbackModel[]>('https://localhost:7282/Feedback/GetModuleFeedbacks',  { params: requestParams });;
+        return this.httpClient.get<FeedbackCollection>('https://localhost:7282/Feedback/GetModuleFeedbacks',  { params: requestParams });;
     }
 
     createFeedback(feedback: FeedbackModel): Observable<FeedbackModel>{

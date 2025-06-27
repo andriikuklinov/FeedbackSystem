@@ -29,4 +29,12 @@
             </tr>
         }
     </tbody>
+    <tfoot>
+        <td colspan="6">
+            <div class="footer-wrapper">
+                <span class="footer-item">Total: {{count()}}</span>
+                <span class="footer-item">Average Score: {{averageScore().toFixed(1)}}</span>
+            </div>
+        </td>
+    </tfoot>
 </table>

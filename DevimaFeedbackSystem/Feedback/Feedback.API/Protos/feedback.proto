@@ -23,6 +23,8 @@ message GetFeedbacksByModuleIdRequest {
 }
 message FeedbacksResponse {
 	repeated FeedbackModel feedbacks=1;
+	double averageScore=2;
+	int32 count=3;
 }
 
 message GetFeedbackByUserIdRequest {

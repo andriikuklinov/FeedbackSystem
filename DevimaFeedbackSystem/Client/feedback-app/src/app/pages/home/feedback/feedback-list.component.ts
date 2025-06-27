@@ -15,8 +15,10 @@ import { SvgIconComponent } from "../../../common/components/svg-icon/svg-icon.c
     imports: [MatButtonModule, MatDialogModule, DatePipe, SvgIconComponent, NgClass]
 })
 export class FeedbackListComponent implements OnInit{
-    feedbacks: WritableSignal<FeedbackModel[]> = signal([])
-    moduleId: WritableSignal<number> = signal<number>(1);
+    feedbacks: WritableSignal<FeedbackModel[]> = signal([]);
+    averageScore = signal(0);
+    count = signal(0);
+    moduleId: WritableSignal<number> = signal<number>(0);
     dialog = inject(MatDialog);
     orderByRating = signal('asc');
     constructor(private feedbackService: FeedbackService, private route: ActivatedRoute){
@@ -33,7 +35,10 @@ export class FeedbackListComponent implements OnInit{
 
     private loadFeedbacks(moduleId: number, orderByRating: string){
         this.feedbackService.getFeedbacks(moduleId, orderByRating).subscribe((response)=>{
-            this.feedbacks.set(response);
+            debugger;
+            this.feedbacks.set(response.feedbacks);
+            this.averageScore.set(response.averageScore);
+            this.count.set(response.count);
         });
     }
 

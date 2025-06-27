@@ -37,7 +37,7 @@ namespace APIGateway.API.Controllers
             headers.Add("Authorization", $"{HttpContext.Request.Headers.Authorization}");
             var reply = await client.GetFeedbacksByModuleIdAsync(new GetFeedbacksByModuleIdRequest { ModuleId = moduleId, OrderByRating = orderByRating }, headers);
 
-            return Json(reply.Feedbacks);
+            return Json(reply);
         }
 
         [HttpPost]

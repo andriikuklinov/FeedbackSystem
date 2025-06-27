@@ -4,3 +4,10 @@ table{
 .negative-feedback{
     background-color: var(--primary-color);
 }
+.footer-wrapper{
+    width: 100%;
+}
+.footer-item{
+    float: right;
+    margin: 10px;
+}
