@@ -5,7 +5,7 @@ namespace Feedback.API.Data.Repositories.Contracts
 {
     public interface IFeedbackRepository
     {
-        Task<IEnumerable<FeedbackEntity>> GetFeedbacksByModuleId(int moduleId);
+        Task<IEnumerable<FeedbackEntity>> GetFeedbacksByModuleId(int moduleId, string orderByRating);
         Task<IEnumerable<FeedbackEntity>> GetUserFeedbacks(int userId);
         Task<FeedbackEntity> CreateFeedback(FeedbackEntity feedback);
         Task<FeedbackEntity> UpdateFeedback(FeedbackEntity feedback);

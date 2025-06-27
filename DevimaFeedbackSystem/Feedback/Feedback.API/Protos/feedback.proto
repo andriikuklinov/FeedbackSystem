@@ -19,6 +19,7 @@ message CreateFeedbackRequest {
 
 message GetFeedbacksByModuleIdRequest {
 	int32 moduleId=1;
+	string orderByRating=2;
 }
 message FeedbacksResponse {
 	repeated FeedbackModel feedbacks=1;

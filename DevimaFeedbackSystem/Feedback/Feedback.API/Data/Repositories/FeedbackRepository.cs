@@ -16,10 +16,14 @@ namespace Feedback.API.Data.Repositories
             var feedbacks = await GetAll().Where(_ => _.UserId == userId).ToListAsync();
             return feedbacks;
         }
-        public async Task<IEnumerable<FeedbackEntity>> GetFeedbacksByModuleId(int moduleId)
+        public async Task<IEnumerable<FeedbackEntity>> GetFeedbacksByModuleId(int moduleId, string orderByRating)
         {
-            var feedbacks = await GetAll().Where(_ => _.ModuleId == moduleId).ToListAsync();
-            return feedbacks;
+            var feedbacks = GetAll().Where(_ => _.ModuleId == moduleId);
+            if (orderByRating == "asc")
+                feedbacks = feedbacks.OrderBy(_ => _.Rating);
+            else
+                feedbacks = feedbacks.OrderByDescending(_ => _.Rating);
+            return await feedbacks.ToListAsync();
         }
 
         public async Task<Entities.Feedback> CreateFeedback(Entities.Feedback feedback)

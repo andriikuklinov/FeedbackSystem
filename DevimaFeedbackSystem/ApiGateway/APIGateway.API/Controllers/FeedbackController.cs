@@ -29,13 +29,13 @@ namespace APIGateway.API.Controllers
             return Json(reply.Feedbacks);
         }
         [HttpGet]
-        public async Task<JsonResult> GetModuleFeedbacks(int moduleId)
+        public async Task<JsonResult> GetModuleFeedbacks(int moduleId, string orderByRating = "asc")
         {
             using var chanel = GrpcChannel.ForAddress(_configuration["Feedback.Grpc"]);
             var client = new FeedbackProtoService.FeedbackProtoServiceClient(chanel);
             var headers = new Grpc.Core.Metadata();
             headers.Add("Authorization", $"{HttpContext.Request.Headers.Authorization}");
-            var reply = await client.GetFeedbacksByModuleIdAsync(new GetFeedbacksByModuleIdRequest { ModuleId = moduleId }, headers);
+            var reply = await client.GetFeedbacksByModuleIdAsync(new GetFeedbacksByModuleIdRequest { ModuleId = moduleId, OrderByRating = orderByRating }, headers);
 
             return Json(reply.Feedbacks);
         }

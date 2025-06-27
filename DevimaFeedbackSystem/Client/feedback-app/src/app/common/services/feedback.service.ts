@@ -20,9 +20,10 @@ export class FeedbackService {
         debugger;
         return result?.sub;
     }
-    getFeedbacks(moduleId: number): Observable<FeedbackModel[]>{
+    getFeedbacks(moduleId: number, orderByRating: string): Observable<FeedbackModel[]>{
         let requestParams: HttpParams = new HttpParams()
-            .set('moduleId', moduleId);
+            .set('moduleId', moduleId)
+            .set('orderByRating', orderByRating);
         return this.httpClient.get<FeedbackModel[]>('https://localhost:7282/Feedback/GetModuleFeedbacks',  { params: requestParams });;
     }
 

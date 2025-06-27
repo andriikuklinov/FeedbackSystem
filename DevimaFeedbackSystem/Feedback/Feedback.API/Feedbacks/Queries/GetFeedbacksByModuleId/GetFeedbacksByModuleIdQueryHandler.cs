@@ -15,7 +15,7 @@ namespace Feedback.API.Feedbacks.Queries.GetFeedbacksByModuleId
 
         public async Task<GetFeedbacksResult> Handle(GetFeedbacksByModuleIdQuery query, CancellationToken cancellationToken)
         {
-            var feedbacks = await _feedbackRepository.GetFeedbacksByModuleId(query.ModuleId);
+            var feedbacks = await _feedbackRepository.GetFeedbacksByModuleId(query.ModuleId, query.OrderByRating);
             return new GetFeedbacksResult(feedbacks);
         }
     }

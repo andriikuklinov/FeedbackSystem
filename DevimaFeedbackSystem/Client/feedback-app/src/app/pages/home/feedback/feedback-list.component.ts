@@ -18,20 +18,21 @@ export class FeedbackListComponent implements OnInit{
     feedbacks: WritableSignal<FeedbackModel[]> = signal([])
     moduleId: WritableSignal<number> = signal<number>(1);
     dialog = inject(MatDialog);
+    orderByRating = signal('asc');
     constructor(private feedbackService: FeedbackService, private route: ActivatedRoute){
 
     }
 
     ngOnInit(): void {
-        this.loadFeedbacks(1);
+        this.loadFeedbacks(1, this.orderByRating());
         this.route.paramMap.subscribe((params)=>{
-            this.loadFeedbacks(Number(params.get('moduleId')));
+            this.loadFeedbacks(Number(params.get('moduleId')), this.orderByRating());
             this.moduleId.set(Number(params.get('moduleId')));
         });
     }
 
-    private loadFeedbacks(moduleId: number){
-        this.feedbackService.getFeedbacks(moduleId).subscribe((response)=>{
+    private loadFeedbacks(moduleId: number, orderByRating: string){
+        this.feedbackService.getFeedbacks(moduleId, orderByRating).subscribe((response)=>{
             this.feedbacks.set(response);
         });
     }
@@ -61,5 +62,11 @@ export class FeedbackListComponent implements OnInit{
                 }
             })
         }
+    }
+
+    orderFeedbacks(){
+        debugger;
+        this.orderByRating.update(value=> value=='asc' ? 'desc' : 'asc');
+        this.loadFeedbacks(1, this.orderByRating());
     }
 }
