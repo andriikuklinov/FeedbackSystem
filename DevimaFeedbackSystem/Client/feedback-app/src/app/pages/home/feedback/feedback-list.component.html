@@ -15,7 +15,7 @@
     </thead>
     <tbody>
         @for (feedback of feedbacks(); track feedback.id){
-            <tr>
+            <tr [ngClass]="{ 'negative-feedback': feedback.rating<3 }">
                 <td>{{feedback.id}}</td>
                 <td>{{feedback.comment}}</td>
                 <td>{{feedback.rating}}</td>

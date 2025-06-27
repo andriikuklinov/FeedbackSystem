@@ -5,14 +5,14 @@ import { MatDialog, MatDialogModule } from "@angular/material/dialog";
 import { FeedbackCreateDialog } from "./components/feedback-create-dialog/feedback-create-dialog.component";
 import { MatButtonModule } from "@angular/material/button";
 import { FeedbackModel } from "./models/feedback.model";
-import { DatePipe } from "@angular/common";
+import { DatePipe, NgClass } from "@angular/common";
 import { SvgIconComponent } from "../../../common/components/svg-icon/svg-icon.component";
 
 @Component({
     selector: 'feedback-list',
     templateUrl: './feedback-list.component.html',
     styleUrl: './feedback-list.component.css',
-    imports: [MatButtonModule, MatDialogModule, DatePipe, SvgIconComponent]
+    imports: [MatButtonModule, MatDialogModule, DatePipe, SvgIconComponent, NgClass]
 })
 export class FeedbackListComponent implements OnInit{
     feedbacks: WritableSignal<FeedbackModel[]> = signal([])
