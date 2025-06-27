@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Create Feedback</h2>
+<mat-dialog-content class="mat-typography">
+    <form class="dialog-form" [formGroup]="form" (ngSubmit)="onSave()">
+        <label class="control-label mb16">
+        Rating
+        <div class="icon-input-wrapper">
+            <input (change)="ratingOnChange($event)" name="rating" formControlName="rating" class="input" type="number" min="1" max="5" placeholder="Rating" />
+            @if(form.controls['rating'].errors?.['required'] && form.controls['rating'].touched){
+                <div>Rating is required.</div>
+            }
+        </div>
+    </label>
+    <label class="control-label mb32">
+        Comment
+        <div class="icon-input-wrapper">
+            <input name="comment" formControlName="comment" class="input" placeholder="Comment" />
+            @if(form.controls['comment'].errors?.['required']){
+                <div>Comment is required.</div>
+            }
+        </div>
+    </label>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button matButton mat-dialog-close>Cancel</button>
+  <button matButton [disabled]="!form.valid" [mat-dialog-close]="true" cdkFocusInitial>Save</button>
+</mat-dialog-actions>

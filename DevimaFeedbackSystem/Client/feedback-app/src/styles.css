@@ -55,7 +55,7 @@ body {
 }
 
 .control-label {
-    font-weight: 700;
+    /* font-weight: 700; */
     font-size: 12px;
     line-height: 16px;
     display: block;
@@ -133,4 +133,12 @@ td{
 .login-logo{
     width: 400px;
     height: 400px
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.dialog-container{
+    background: #19181F !important;
+}
+.align-right{
+    float: right;
 }

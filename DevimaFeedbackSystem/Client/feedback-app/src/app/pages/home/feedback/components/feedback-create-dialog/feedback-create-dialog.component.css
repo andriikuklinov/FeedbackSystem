@@ -1,0 +1,9 @@
+input[type=number] {
+    
+}
+
+input[type=number]:hover::-webkit-inner-spin-button {
+    background: transparent;
+    width: 14px;
+    height: 30px;
+}
