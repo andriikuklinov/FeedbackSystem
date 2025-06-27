@@ -25,6 +25,9 @@
 
   <ItemGroup>
     <Protobuf Include="Protos\feedback.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\module.proto" GrpcServices="Client">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Protobuf>
   </ItemGroup>
 
 </Project>

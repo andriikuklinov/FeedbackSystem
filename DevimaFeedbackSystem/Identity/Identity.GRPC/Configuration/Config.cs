@@ -31,20 +31,21 @@ namespace Identity.GRPC.Configuration
                 {
                     new Secret("secret".Sha256())
                 },
-                AllowedScopes = { "gatewayScope", "feedbackScope" }
+                AllowedScopes = { "gatewayScope", "feedbackScope", "moduleScope" }
             }
         };
 
         public static IEnumerable<ApiScope> ApiScopes => new ApiScope[]
         {
             new ApiScope("feedbackScope"),
-            new ApiScope("gatewayScope")
+            new ApiScope("gatewayScope"),
+            new ApiScope("moduleScope"),
         };
         public static IEnumerable<ApiResource> ApiResources => new ApiResource[]
         {
             new ApiResource("gatewayResource")
             {
-                Scopes = { "gatewayScope", "feedbackScope" }
+                Scopes = { "gatewayScope", "feedbackScope", "moduleScope" }
                 
             }
         };

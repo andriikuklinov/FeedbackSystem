@@ -1,0 +1,11 @@
+<nav>
+    <ul class="main-menu-list">
+        @for (module of modules(); track module.id){
+            <li class="module">
+                <a [routerLink]="['module/', module.id]" routerLink="active" class="menu-item">
+                    <div class="ml16 menu-item-header">{{module.name}}</div>
+                </a>
+            </li>
+        }
+    </ul>
+</nav>

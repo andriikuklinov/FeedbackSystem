@@ -55,8 +55,6 @@ builder.Services.AddAuthorization();
 var app = builder.Build();
 
 app.UseAuthentication();
-
-
 app.UseAuthorization();
 app.MapGrpcService<FeedbackService>();
 app.Run();

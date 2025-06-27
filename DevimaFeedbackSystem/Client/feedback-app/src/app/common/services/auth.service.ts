@@ -5,8 +5,7 @@ import { catchError, from, map, Observable, tap, throwError } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 
 @Injectable({
-    providedIn: 'root',
-    
+    providedIn: 'root'
 })
 export class AuthService {
     private cookieService = inject(CookieService);
@@ -22,7 +21,8 @@ export class AuthService {
     }
 
     private setTokens(value: TokenResponse): void {
-        this.cookieService.set('token', <string>this.token);
+        debugger;
+        this.cookieService.set('token', <string>value.access_token);
     }
 
     login(credentials: { login: string, password: string }): Observable<TokenResponse> {
