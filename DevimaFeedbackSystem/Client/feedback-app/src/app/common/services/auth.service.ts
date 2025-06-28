@@ -23,21 +23,21 @@ export class AuthService {
     }
 
     private setTokens(value: TokenResponse): void {
-        debugger;
         this.cookieService.set('token', <string>value.access_token);
     }
-
+    private clearCookie(): void{
+        this.cookieService.delete('token', '/');
+    }
     login(credentials: { login: string, password: string }): Observable<TokenResponse> {
         return this.httpClient.post<TokenResponse>('http://localhost:5135/Auth/Login', credentials).pipe(
             tap((value) => {
-                debugger;
                 this.setTokens(value);
             })
         );
     }
 
     logout() {
-        this.cookieService.deleteAll();
+        this.clearCookie();
         this.router.navigate(['/login'])
     }
 }

@@ -5,6 +5,7 @@ import { AuthService } from "../services/auth.service";
 import { CookieService } from "ngx-cookie-service";
 
 export const authTokenInterceptor: HttpInterceptorFn = (request, next) => {
+    debugger;
     const authService: AuthService = inject(AuthService);
     const token: string | null = authService.token;
     
@@ -19,7 +20,7 @@ export const authTokenInterceptor: HttpInterceptorFn = (request, next) => {
 
     return next(addToken(request, token)).pipe(
         catchError(error => {
-            if(error.status == 401){
+            if(error.status == 401 || error.status == 403){
                 authService.logout();
             }
             return throwError(error);

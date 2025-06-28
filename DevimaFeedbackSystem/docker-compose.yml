@@ -22,6 +22,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:5064
+    depends_on:
+      - identity
   feedback:
     container_name: feedback
     build:
@@ -32,6 +34,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:5014
+    depends_on:
+      - identity
   gateway:
     container_name: api-gateway
     build:
@@ -42,6 +46,10 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:5135
+    depends_on:
+      - feedback
+      - module
+      - identity
   client:
     container_name: client-app
     build:
@@ -49,3 +57,5 @@ services:
       dockerfile: /Client/feedback-app/Dockerfile
     ports:
       - 80:80
+    depends_on:
+      - gateway
