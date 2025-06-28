@@ -7,4 +7,4 @@ Technologies:
   - Docker compose/Docker
 Setup:
   - execute "docker compose up" command in "./FeedbackSystem/DevimaFeedbackSystem"
-  - launch http://localhost in browser
+  - launch http://localhost in browser with credentials (login: andrii; password: qwerty)
