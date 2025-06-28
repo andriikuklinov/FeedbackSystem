@@ -20,11 +20,14 @@ namespace APIGateway.API.Controllers
         [HttpGet]
         public async Task<JsonResult> GetModules()
         {
-            using var chanel = GrpcChannel.ForAddress(_configuration["Module.Grpc"]);
+            using var chanel = GrpcChannel.ForAddress(_configuration["Module.Grpc"], new GrpcChannelOptions()
+            {
+                HttpVersion = new Version(2, 0)
+            });
             var client = new ModuleProtoService.ModuleProtoServiceClient(chanel);
             var headers = new Grpc.Core.Metadata();
             headers.Add("Authorization", $"{HttpContext.Request.Headers.Authorization}");
-            var reply = await client.GetModulesAsync(new Google.Protobuf.WellKnownTypes.Empty());
+            var reply = await client.GetModulesAsync(new Google.Protobuf.WellKnownTypes.Empty(), headers);
 
             return Json(reply);
         }

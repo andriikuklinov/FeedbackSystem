@@ -28,7 +28,7 @@ export class AuthService {
     }
 
     login(credentials: { login: string, password: string }): Observable<TokenResponse> {
-        return this.httpClient.post<TokenResponse>('https://localhost:7282/Auth/Login', credentials).pipe(
+        return this.httpClient.post<TokenResponse>('http://localhost:5135/Auth/Login', credentials).pipe(
             tap((value) => {
                 debugger;
                 this.setTokens(value);

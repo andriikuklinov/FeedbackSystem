@@ -2,11 +2,13 @@
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Module.GRPC.Modules.Queries.GetModules;
 using Module.GRPC.Protos;
 
 namespace Module.GRPC.Services
 {
+    [Authorize]
     public class ModuleService: ModuleProtoService.ModuleProtoServiceBase
     {
         private readonly ILogger<ModuleService> _logger;

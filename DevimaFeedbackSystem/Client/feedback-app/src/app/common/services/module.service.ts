@@ -14,6 +14,6 @@ export class ModuleService {
     }
 
     getModules(): Observable<{modules: ModuleModel[]}>{
-        return this.httpClient.get<{modules: ModuleModel[]}>('https://localhost:7282/Module/GetModules');
+        return this.httpClient.get<{modules: ModuleModel[]}>('http://localhost:5135/Module/GetModules');
     }
 }

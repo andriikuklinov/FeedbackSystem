@@ -10,4 +10,16 @@
     <PackageReference Include="Duende.IdentityServer" Version="7.2.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="keys\is-signing-key-1718FE6B4DADD06A48FF1F1694080286.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="tempkey.jwk">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

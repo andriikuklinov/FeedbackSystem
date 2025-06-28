@@ -1,0 +1,51 @@
+version: '3.4'
+name: devima-solutions
+
+services:
+  identity:
+    container_name: identity-server
+    build:
+      context: ./
+      dockerfile: /Identity/Identity.GRPC/Dockerfile
+    ports:
+      - 5000:5000
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5000
+  module:
+    container_name: module
+    build:
+      context: ./
+      dockerfile: /Module/Module.GRPC/Dockerfile
+    ports:
+      - 5064:5064
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5064
+  feedback:
+    container_name: feedback
+    build:
+      context: ./
+      dockerfile: /Feedback/Feedback.API/Dockerfile
+    ports:
+      - 5014:5014
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5014
+  gateway:
+    container_name: api-gateway
+    build:
+      context: ./
+      dockerfile: /ApiGateway/APIGateway.API/Dockerfile
+    ports:
+      - 5135:5135
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5135
+  client:
+    container_name: client-app
+    build:
+      context: ./
+      dockerfile: /Client/feedback-app/Dockerfile
+    ports:
+      - 80:80

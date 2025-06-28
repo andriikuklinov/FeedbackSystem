@@ -20,7 +20,10 @@ namespace APIGateway.API.Controllers
         [HttpGet]
         public async Task<JsonResult> GetUserFeedbacks(int userId)
         {
-            using var chanel = GrpcChannel.ForAddress(_configuration["Feedback.Grpc"]);
+            using var chanel = GrpcChannel.ForAddress(_configuration["Feedback.Grpc"], new GrpcChannelOptions()
+            {
+                HttpVersion = new Version(2, 0)
+            }); 
             var client = new FeedbackProtoService.FeedbackProtoServiceClient(chanel);
             var headers = new Grpc.Core.Metadata();
             headers.Add("Authorization", $"{HttpContext.Request.Headers.Authorization}");
@@ -31,7 +34,10 @@ namespace APIGateway.API.Controllers
         [HttpGet]
         public async Task<JsonResult> GetModuleFeedbacks(int moduleId, string orderByRating = "asc")
         {
-            using var chanel = GrpcChannel.ForAddress(_configuration["Feedback.Grpc"]);
+            using var chanel = GrpcChannel.ForAddress(_configuration["Feedback.Grpc"], new GrpcChannelOptions()
+            {
+                HttpVersion = new Version(2, 0)
+            });
             var client = new FeedbackProtoService.FeedbackProtoServiceClient(chanel);
             var headers = new Grpc.Core.Metadata();
             headers.Add("Authorization", $"{HttpContext.Request.Headers.Authorization}");
@@ -43,7 +49,10 @@ namespace APIGateway.API.Controllers
         [HttpPost]
         public async Task<JsonResult> CreateFeedback([FromBody] FeedbackModel feedback)
         {
-            using var chanel = GrpcChannel.ForAddress(_configuration["Feedback.Grpc"]);
+            using var chanel = GrpcChannel.ForAddress(_configuration["Feedback.Grpc"], new GrpcChannelOptions()
+            {
+                HttpVersion = new Version(2, 0)
+            });
             var client = new FeedbackProtoService.FeedbackProtoServiceClient(chanel);
             var headers = new Grpc.Core.Metadata();
             headers.Add("Authorization", $"{HttpContext.Request.Headers.Authorization}");
@@ -65,7 +74,10 @@ namespace APIGateway.API.Controllers
         [HttpPost]
         public async Task<JsonResult> DeleteFeedback([FromBody] FeedbackModel feedback)
         {
-            using var chanel = GrpcChannel.ForAddress(_configuration["Feedback.Grpc"]);
+            using var chanel = GrpcChannel.ForAddress(_configuration["Feedback.Grpc"], new GrpcChannelOptions()
+            {
+                HttpVersion = new Version(2, 0)
+            });
             var client = new FeedbackProtoService.FeedbackProtoServiceClient(chanel);
             var headers = new Grpc.Core.Metadata();
             headers.Add("Authorization", $"{HttpContext.Request.Headers.Authorization}");

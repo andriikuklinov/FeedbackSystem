@@ -1,5 +1,6 @@
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 
@@ -10,23 +11,25 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("CustomPolicy", policy =>
     {
-        policy.WithOrigins("http://localhost:4200")
+        policy.WithOrigins(new string[] { "http://client" , "http://localhost" })
         .AllowAnyHeader()
-        .AllowAnyMethod();
+        .AllowAnyMethod()
+        .AllowCredentials();
     });
 });
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
-        options.Authority = "https://localhost:7258";
+        options.RequireHttpsMetadata = false;
+        options.Authority = "http://identity-server:5000";
         options.Audience = "gatewayResource";
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
             ValidateAudience = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = "https://localhost:7258",
+            ValidIssuer = "http://identity-server:5000",
             ValidAudience = "gatewayResource",
             //IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("secret"))
         };

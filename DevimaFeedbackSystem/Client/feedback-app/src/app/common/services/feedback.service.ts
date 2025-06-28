@@ -25,17 +25,17 @@ export class FeedbackService {
         let requestParams: HttpParams = new HttpParams()
             .set('moduleId', moduleId)
             .set('orderByRating', orderByRating);
-        return this.httpClient.get<FeedbackCollection>('https://localhost:7282/Feedback/GetModuleFeedbacks',  { params: requestParams });;
+        return this.httpClient.get<FeedbackCollection>('http://localhost:5135/Feedback/GetModuleFeedbacks',  { params: requestParams });;
     }
 
     createFeedback(feedback: FeedbackModel): Observable<FeedbackModel>{
         feedback.userId=this.setCurrentUserId();
-        return this.httpClient.post<FeedbackModel>('https://localhost:7282/Feedback/CreateFeedback', feedback);
+        return this.httpClient.post<FeedbackModel>('http://localhost:5135/Feedback/CreateFeedback', feedback);
     }
 
     removeFeedback(feedback: FeedbackModel): Observable<FeedbackModel>{
         debugger;
-        return this.httpClient.post<FeedbackModel>('https://localhost:7282/Feedback/DeleteFeedback', { 
+        return this.httpClient.post<FeedbackModel>('http://localhost:5135/Feedback/DeleteFeedback', { 
             id: feedback.id,
             comment: feedback.comment,
             userId: feedback.userId,

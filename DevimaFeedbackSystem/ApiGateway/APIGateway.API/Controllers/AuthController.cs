@@ -29,7 +29,7 @@ namespace APIGateway.API.Controllers
             var content = new FormUrlEncodedContent(formData);
             content.Headers.ContentType.MediaType = "application/x-www-form-urlencoded";
 
-            var response = await _httpClient.PostAsync("https://localhost:7258/connect/token", content);
+            var response = await _httpClient.PostAsync("http://identity-server:5000/connect/token", content);
 
             return Json(await response.Content.ReadFromJsonAsync(typeof(Object)));
         }
